@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrTrussardiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CanceledDishes">
+    <Key>
+      <PropertyRef Name="CDId" />
+    </Key>
+    <Property Name="DishId" Type="Int32" Nullable="false" />
+    <Property Name="Cause" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CDId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_CanceledDishes_Dishes" FromRole="CanceledDishes" ToRole="Dishes" />
+  </EntityType>
+  <EntityType Name="CanceledOrders">
+    <Key>
+      <PropertyRef Name="COId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="COId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_CanceledOrders_Orders" FromRole="CanceledOrders" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_Dishes_Categories" FromRole="Categories" ToRole="Dishes" />
+  </EntityType>
+  <EntityType Name="Compositions">
+    <Key>
+      <PropertyRef Name="CId" />
+    </Key>
+    <Property Name="DishId" Type="Int32" Nullable="false" />
+    <Property Name="IngredientId" Type="Int32" Nullable="false" />
+    <Property Name="CId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_Compositions_Dishes" FromRole="Compositions" ToRole="Dishes" />
+    <NavigationProperty Name="Ingredients" Relationship="Self.FK_Compositions_Ingredients" FromRole="Compositions" ToRole="Ingredients" />
+  </EntityType>
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="DishId" />
+    </Key>
+    <Property Name="DishId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Count" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Protein" Type="Single" Nullable="false" />
+    <Property Name="Fat" Type="Single" Nullable="false" />
+    <Property Name="Carbohydrate" Type="Single" Nullable="false" />
+    <Property Name="Calories" Type="Single" Nullable="false" />
+    <Property Name="Val" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CanceledDishes" Relationship="Self.FK_CanceledDishes_Dishes" FromRole="Dishes" ToRole="CanceledDishes" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Dishes_Categories" FromRole="Dishes" ToRole="Categories" />
+    <NavigationProperty Name="Compositions" Relationship="Self.FK_Compositions_Dishes" FromRole="Dishes" ToRole="Compositions" />
+    <NavigationProperty Name="OrderedDishes" Relationship="Self.FK_OrderedDishes_Dishes" FromRole="Dishes" ToRole="OrderedDishes" />
+  </EntityType>
+  <EntityType Name="Ingredients">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Compositions" Relationship="Self.FK_Compositions_Ingredients" FromRole="Ingredients" ToRole="Compositions" />
+  </EntityType>
+  <EntityType Name="OrderedDishes">
+    <Key>
+      <PropertyRef Name="ODId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="DishId" Type="Int32" Nullable="false" />
+    <Property Name="ODId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Dishes" Relationship="Self.FK_OrderedDishes_Dishes" FromRole="OrderedDishes" ToRole="Dishes" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_OrderedDishes_Orders" FromRole="OrderedDishes" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableNumber" Type="Int32" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CanceledOrders" Relationship="Self.FK_CanceledOrders_Orders" FromRole="Orders" ToRole="CanceledOrders" />
+    <NavigationProperty Name="OrderedDishes" Relationship="Self.FK_OrderedDishes_Orders" FromRole="Orders" ToRole="OrderedDishes" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPrivileges" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CanceledDishes_Dishes">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanceledDishes" Type="Self.CanceledDishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="DishId" />
+      </Principal>
+      <Dependent Role="CanceledDishes">
+        <PropertyRef Name="DishId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanceledOrders_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanceledOrders" Type="Self.CanceledOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="CanceledOrders">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dishes_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Dishes">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compositions_Dishes">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Compositions" Type="Self.Compositions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="DishId" />
+      </Principal>
+      <Dependent Role="Compositions">
+        <PropertyRef Name="DishId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compositions_Ingredients">
+    <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Compositions" Type="Self.Compositions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="IngredientId" />
+      </Principal>
+      <Dependent Role="Compositions">
+        <PropertyRef Name="IngredientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderedDishes_Dishes">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderedDishes" Type="Self.OrderedDishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="DishId" />
+      </Principal>
+      <Dependent Role="OrderedDishes">
+        <PropertyRef Name="DishId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderedDishes_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderedDishes" Type="Self.OrderedDishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderedDishes">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrTrussardiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CanceledDishes" EntityType="Self.CanceledDishes" />
+    <EntitySet Name="CanceledOrders" EntityType="Self.CanceledOrders" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Compositions" EntityType="Self.Compositions" />
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+    <EntitySet Name="OrderedDishes" EntityType="Self.OrderedDishes" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_CanceledDishes_Dishes" Association="Self.FK_CanceledDishes_Dishes">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="CanceledDishes" EntitySet="CanceledDishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanceledOrders_Orders" Association="Self.FK_CanceledOrders_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="CanceledOrders" EntitySet="CanceledOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dishes_Categories" Association="Self.FK_Dishes_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Dishes" EntitySet="Dishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compositions_Dishes" Association="Self.FK_Compositions_Dishes">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="Compositions" EntitySet="Compositions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compositions_Ingredients" Association="Self.FK_Compositions_Ingredients">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="Compositions" EntitySet="Compositions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderedDishes_Dishes" Association="Self.FK_OrderedDishes_Dishes">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="OrderedDishes" EntitySet="OrderedDishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderedDishes_Orders" Association="Self.FK_OrderedDishes_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderedDishes" EntitySet="OrderedDishes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

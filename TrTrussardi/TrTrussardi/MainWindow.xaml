@@ -15,19 +15,16 @@
                                     DockPanel.Dock="Top"
                                     HorizontalAlignment="Right" Margin="16"
                                     IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ListBox SelectionChanged="Itemss_SelectionChanged" Name="Itemss" Margin="0 16 0 16" SelectedIndex="0"                             
+                    <ListBox FontSize="16" SelectionChanged="Itemss_SelectionChanged" Name="Itemss" Margin="0 16 0 16" SelectedIndex="0"                             
                              PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp">
-                        <ListBoxItem>
-                            <TextBlock>Меню ресторана</TextBlock>
+                        <ListBoxItem >
+                            <TextBlock Text=" Меню ресторана"></TextBlock>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <TextBlock>Ингредиенты</TextBlock>
+                            <TextBlock Text=" Ингредиенты"></TextBlock>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <TextBlock>Блюда</TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <TextBlock>Блюда</TextBlock>
+                            <TextBlock Text=" Заказы"></TextBlock>
                         </ListBoxItem>
                     </ListBox>
                 </DockPanel>

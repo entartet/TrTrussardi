@@ -6,49 +6,42 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TrTrussardi"
         mc:Ignorable="d"
-        Height="700" Width="900">
+        Height="560" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="167*"/>
-            <RowDefinition Height="113*"/>
-            <RowDefinition Height="120*"/>
-            <RowDefinition Height="269*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Image Name="DishPhoto" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></Image>
         <StackPanel Grid.Column="1" Grid.Row="2">
-            <Button Click="Button_Click" Content="Загрузить новое изображение" Margin="10"/>
-            <Button Click="Button_Click_1" Background="LimeGreen" Content="Сохранить данные о блюде и закрыть окно" Margin="10"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="Button_Click" Content="Загрузить" Margin="10"/>
+                <Button Click="Button_Click_1" Background="LimeGreen" Content="Сохранить данные" Margin="10"/>
+            </StackPanel>
         </StackPanel>
-        <GroupBox Grid.RowSpan="2" Header="Осноная информация">
+        <GroupBox BorderThickness="2"  FontSize="14" Grid.RowSpan="2" Header="Осноная информация">
             <StackPanel>
-                <TextBlock Text="Назание блюда"/>
-                <TextBox Name="dishName" MaxLength="30" />
-                <TextBlock Text="Стоимость блюда"/>
-                <TextBox PreviewTextInput="Cost_PreviewTextInput" Name="TextVal" MaxLength="10" />
-                <TextBlock Text="Категория блюда"/>
-                <ComboBox DisplayMemberPath="Name" SelectedValuePath="CategoryId" Name="Categories" />
-                <TextBlock Text="Вес блюда (в граммах)"></TextBlock>
-                <TextBox PreviewTextInput="Cost_PreviewTextInput" Name="textWeight" />
-                <TextBlock Text="Количество (необезательно)"/>
-                <TextBox PreviewTextInput="Cost_PreviewTextInput" Name="TextCount" />
+                <TextBox Margin="0 5 0 0" Name="dishName" MaxLength="30"  materialDesign:HintAssist.Hint="Название блюда" materialDesign:HintAssist.IsFloating="True"  />
+                <TextBox  Margin="0 5 0 0"  PreviewTextInput="Cost_PreviewTextInput" Name="TextVal" MaxLength="10"   materialDesign:HintAssist.Hint="Стоимость блюда" materialDesign:HintAssist.IsFloating="True" />
+                <ComboBox  Margin="0 5 0 0"  DisplayMemberPath="Name" SelectedValuePath="CategoryId" Name="Categories"   materialDesign:HintAssist.Hint="Категория блюда" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox  Margin="0 5 0 0"  PreviewTextInput="Cost_PreviewTextInput"  materialDesign:HintAssist.Hint="Вес блюда"   materialDesign:HintAssist.IsFloating="True" Name="textWeight" />
+                <TextBox  Margin="0 5 0 0"  PreviewTextInput="Cost_PreviewTextInput"   materialDesign:HintAssist.Hint="Количество (необязательное поле)" materialDesign:HintAssist.IsFloating="True" Name="TextCount" />
             </StackPanel>
         </GroupBox>
-        <GroupBox  Grid.Row="2" Grid.RowSpan="2" Header="На 100 гр:" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ColorZoneAssist.Mode="Accent">
+        <GroupBox BorderThickness="1" FontSize="14" Grid.Row="2" Grid.RowSpan="2" Header="На 100 гр:" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ColorZoneAssist.Mode="Accent">
             <StackPanel>
-                <TextBlock Text="Белки (гр.)"/>
-                <TextBox PreviewTextInput="TextFat_PreviewTextInput" Name="TextProtein" MaxLength="30" />
-                <TextBlock Text="Жиры (гр.)"/>
-                <TextBox PreviewTextInput="TextFat_PreviewTextInput" Name="TextFat" MaxLength="30">
-                    
+                <TextBox PreviewTextInput="TextFat_PreviewTextInput"   materialDesign:HintAssist.Hint="Белки (гр.)" materialDesign:HintAssist.IsFloating="True"  Name="TextProtein" MaxLength="30" />
+                <TextBox PreviewTextInput="TextFat_PreviewTextInput"   materialDesign:HintAssist.Hint="Жиры (гр.)" materialDesign:HintAssist.IsFloating="True"  Name="TextFat" MaxLength="30">
                 </TextBox>
-                <TextBlock Text="Углеводы (гр.)"/>
-                <TextBox PreviewTextInput="TextFat_PreviewTextInput" Name="TextCarb" MaxLength="30" />
-                <TextBlock Text="Калорийность (кКал)"/>
-                <TextBox PreviewTextInput="Cost_PreviewTextInput" Name="TextCalories" MaxLength="30" />
+                <TextBox PreviewTextInput="TextFat_PreviewTextInput"   materialDesign:HintAssist.Hint="Углеводы (гр.)" materialDesign:HintAssist.IsFloating="True"  Name="TextCarb" MaxLength="30" />
+                <TextBox PreviewTextInput="Cost_PreviewTextInput"   materialDesign:HintAssist.Hint="Калорийность (кКал)" materialDesign:HintAssist.IsFloating="True"  Name="TextCalories" MaxLength="30" />
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Column="1" Grid.Row="3">

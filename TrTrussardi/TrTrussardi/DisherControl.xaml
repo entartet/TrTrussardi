@@ -98,8 +98,11 @@
                                     </Grid.RowDefinitions>
                                     <Image Grid.Row="0" Stretch="Fill" Source="{Binding Picture}"></Image>
                                     <StackPanel  Grid.Row="1"   HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock Margin="15 0 15 0" FontSize="16" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
-                                        <TextBlock Margin="15 0 15 0" FontSize="16" Text="{Binding Val}"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Center"  Margin="15 0 15 0" FontSize="18" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+                                        <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+                                            <TextBlock  Margin="15 0 0 0" FontSize="18" Text="{Binding Val}"></TextBlock>
+                                            <TextBlock FontSize="18" Text=" р. "></TextBlock>
+                                        </StackPanel>
                                         <Button  Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">Изменить</Button>
                                     </StackPanel>
                                 </Grid>
@@ -116,11 +119,11 @@
                                         <RowDefinition  Height="*" />
                                     </Grid.RowDefinitions>
                                     <materialDesign:ColorZone Mode="Accent" Padding="6">
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel  Orientation="Horizontal">
                                             <Button   Style="{StaticResource MaterialDesignToolForegroundButton}"   Command="{x:Static materialDesign:Flipper.FlipCommand}"   HorizontalAlignment="Left">
                                                 <materialDesign:PackIcon   Kind="ArrowLeft"   HorizontalAlignment="Right" />
                                             </Button>
-                                            <TextBlock Margin="8 0 0 0" VerticalAlignment="Center"> Редактирование блюда
+                                            <TextBlock FontSize="16" Margin="8 0 0 0" VerticalAlignment="Center"> Редактирование блюда
                                             </TextBlock>
                                         </StackPanel>
                                     </materialDesign:ColorZone>
@@ -132,9 +135,9 @@
                                             <RowDefinition />
                                             <RowDefinition />
                                         </Grid.RowDefinitions>
-                                        <TextBox Text="{Binding Name}" materialDesign:HintAssist.Hint="Назание блюда"  materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                                        <TextBox FontSize="16" Text="{Binding Name}" materialDesign:HintAssist.Hint="Название блюда"  materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
                                         </TextBox>
-                                        <TextBox PreviewTextInput="Cost_PreviewTextInput" Text="{Binding Val}" Grid.Row="1" materialDesign:HintAssist.Hint="Стоимость блюда" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                                        <TextBox PreviewTextInput="Cost_PreviewTextInput" FontSize="16" Text="{Binding Val}" Grid.Row="1" materialDesign:HintAssist.Hint="Стоимость блюда" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
                                         </TextBox>
                                         <StackPanel   Grid.Row="2"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
                                             <TextBlock  VerticalAlignment="Center">Сохранить изменения</TextBlock>

@@ -25,8 +25,6 @@ namespace TrTrussardi
                 Categories.ItemsSource = db.Categories.Local.ToBindingList();
                 dish = dishes;
                 dishName.Text = dish.Name;
-                dishName.IsReadOnly = true;
-                TextVal.IsReadOnly = true;
                 TextVal.Text = dish.Val.ToString();
                 Categories.SelectedValue = dish.CategoryId;
                 textWeight.Text = dish.Weight;
@@ -44,8 +42,6 @@ namespace TrTrussardi
             db = new TrTrussardiEntities();
             db.Categories.Load();
             Categories.ItemsSource = db.Categories.Local.ToBindingList();
-            dishName.IsReadOnly = false;
-            TextVal.IsReadOnly = false;
         }
         private byte[] ConvertImageToByteArray(string fileName)
         {
@@ -111,6 +107,11 @@ namespace TrTrussardi
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             db.Dispose();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

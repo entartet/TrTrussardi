@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TrTrussardi"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Unloaded="UserControl_Unloaded">
     <DockPanel LastChildFill="True">
         <ListBox SelectionChanged="Categories_SelectionChanged" DockPanel.Dock="Top" Height="50" HorizontalAlignment="Center" Name="Categories" Style="{StaticResource MaterialDesignToolToggleListBox}" >
             <ListBox.Resources>
@@ -33,6 +33,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
         <materialDesign:ColorZone DockPanel.Dock="Bottom" Mode="PrimaryMid" Padding="16">
             <DockPanel>
                 <StackPanel  Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
@@ -56,114 +57,120 @@
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
-        <ListBox HorizontalAlignment="Center" Name="Dishes" >
-            <ListBox.Resources>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="ListBoxItem">
-                                <Border x:Name="border">
-                                    <ContentPresenter></ContentPresenter>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="border"  Property="Background" Value="White"></Setter>
-                                   </Trigger>
-                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                        <Setter  Property="IsSelected" Value="True"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </ListBox.Resources>
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <materialDesign:Flipper Margin="0">
-                        <materialDesign:Flipper.FrontContent>
-                            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="350"  Width="410">
-                                <Grid Height="320" Background="White" Width="360">
-                                    <Grid.Effect>
-                                        <DropShadowEffect Color="Black" BlurRadius="20"></DropShadowEffect>
-                                    </Grid.Effect>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="200" />
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Stretch="Fill" Source="{Binding Picture}"></Image>
-                                    <StackPanel  Grid.Row="1"   HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock HorizontalAlignment="Center"  Margin="15 0 15 0" FontSize="18" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
-                                        <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
-                                            <TextBlock  Margin="15 0 0 0" FontSize="18" Text="{Binding Val}"></TextBlock>
-                                            <TextBlock FontSize="18" Text=" р. "></TextBlock>
-                                        </StackPanel>
-                                        <Button  Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">Изменить</Button>
-                                    </StackPanel>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Flipper.FrontContent>
-                        <materialDesign:Flipper.BackContent>
-                            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="350"  Width="410">
-                                <Grid Background="White"  Height="320" Width="360">
-                                    <Grid.Effect>
-                                        <DropShadowEffect Color="Black" BlurRadius="20"></DropShadowEffect>
-                                    </Grid.Effect>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition  Height="Auto" />
-                                        <RowDefinition  Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <materialDesign:ColorZone Mode="Accent" Padding="6">
-                                        <StackPanel  Orientation="Horizontal">
-                                            <Button   Style="{StaticResource MaterialDesignToolForegroundButton}"   Command="{x:Static materialDesign:Flipper.FlipCommand}"   HorizontalAlignment="Left">
-                                                <materialDesign:PackIcon   Kind="ArrowLeft"   HorizontalAlignment="Right" />
-                                            </Button>
-                                            <TextBlock FontSize="16" Margin="8 0 0 0" VerticalAlignment="Center"> Редактирование блюда
-                                            </TextBlock>
-                                        </StackPanel>
-                                    </materialDesign:ColorZone>
-                                    <Grid Grid.Row="1"   Margin="0 6 0 0"  HorizontalAlignment="Center"  VerticalAlignment="Top"   Width="172">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
-                                        <TextBox FontSize="16" Text="{Binding Name}" materialDesign:HintAssist.Hint="Название блюда"  materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
-                                        </TextBox>
-                                        <TextBox PreviewTextInput="Cost_PreviewTextInput" FontSize="16" Text="{Binding Val}" Grid.Row="1" materialDesign:HintAssist.Hint="Стоимость блюда" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
-                                        </TextBox>
-                                        <StackPanel   Grid.Row="2"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                            <TextBlock  VerticalAlignment="Center">Сохранить изменения</TextBlock>
-                                            <Button Click="Button_Click_1" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Сохранить изменения в базе данных">
-                                                <materialDesign:PackIcon Kind="ContentSave" Height="20" Width="20" />
-                                            </Button>
-                                        </StackPanel>
-                                        <StackPanel   Grid.Row="4"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                            <TextBlock VerticalAlignment="Center">Удалить блюдо</TextBlock>
-                                            <Button Click="Button_Click_2" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Удалить текущее блюдо из базы данных">
-                                                <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
-                                            </Button>
-                                        </StackPanel>
-                                        <StackPanel   Grid.Row="3"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                            <TextBlock VerticalAlignment="Center">Изменить блюдо</TextBlock>
-                                            <Button Click="Button_Click" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Открыть форму для редактирования блюда">
-                                                <materialDesign:PackIcon Kind="Edit" Height="20" Width="20" />
-                                            </Button>
-                                        </StackPanel>
-                                    </Grid>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Flipper.BackContent>
-                    </materialDesign:Flipper>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            </ListBox>
+        <Grid Name="mypanel">
+            <ScrollViewer Height="{Binding ElementName=mypanel, Path=ActualHeight}">
+                <ListBox HorizontalAlignment="Center" Name="Dishes" >
+                    <ListBox.Resources>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border x:Name="border">
+                                            <ContentPresenter></ContentPresenter>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="border"  Property="Background" Value="White"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                                <Setter  Property="IsSelected" Value="True"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.Resources>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:Flipper Margin="0">
+                                <materialDesign:Flipper.FrontContent>
+                                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="350"  Width="410">
+                                        <Grid Height="320" Background="White" Width="360">
+                                            <Grid.Effect>
+                                                <DropShadowEffect Color="Black" BlurRadius="20"></DropShadowEffect>
+                                            </Grid.Effect>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="200" />
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Grid.Row="0" Stretch="Fill" Source="{Binding Picture}"></Image>
+                                            <StackPanel  Grid.Row="1"   HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <TextBlock HorizontalAlignment="Center"  Margin="15 0 15 0" FontSize="18" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+                                                <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+                                                    <TextBlock  Margin="15 0 0 0" FontSize="18" Text="{Binding Val}"></TextBlock>
+                                                    <TextBlock FontSize="18" Text=" р. "></TextBlock>
+                                                </StackPanel>
+                                                <Button  Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">Изменить</Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </materialDesign:Flipper.FrontContent>
+                                <materialDesign:Flipper.BackContent>
+                                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="350"  Width="410">
+                                        <Grid Background="White"  Height="320" Width="360">
+                                            <Grid.Effect>
+                                                <DropShadowEffect Color="Black" BlurRadius="20"></DropShadowEffect>
+                                            </Grid.Effect>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition  Height="Auto" />
+                                                <RowDefinition  Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                                <StackPanel  Orientation="Horizontal">
+                                                    <Button   Style="{StaticResource MaterialDesignToolForegroundButton}"   Command="{x:Static materialDesign:Flipper.FlipCommand}"   HorizontalAlignment="Left">
+                                                        <materialDesign:PackIcon   Kind="ArrowLeft"   HorizontalAlignment="Right" />
+                                                    </Button>
+                                                    <TextBlock FontSize="16" Margin="8 0 0 0" VerticalAlignment="Center"> Редактирование блюда
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </materialDesign:ColorZone>
+                                            <Grid Grid.Row="1"   Margin="0 6 0 0"  HorizontalAlignment="Center"  VerticalAlignment="Top"   Width="172">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <TextBox FontSize="16" Text="{Binding Name}" materialDesign:HintAssist.Hint="Название блюда"  materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                                                </TextBox>
+                                                <TextBox PreviewTextInput="Cost_PreviewTextInput" FontSize="16" Text="{Binding Val}" Grid.Row="1" materialDesign:HintAssist.Hint="Стоимость блюда" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                                                </TextBox>
+                                                <StackPanel   Grid.Row="2"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                                    <TextBlock  VerticalAlignment="Center">Сохранить изменения</TextBlock>
+                                                    <Button Click="Button_Click_1" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Сохранить изменения в базе данных">
+                                                        <materialDesign:PackIcon Kind="ContentSave" Height="20" Width="20" />
+                                                    </Button>
+                                                </StackPanel>
+                                                <StackPanel   Grid.Row="4"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                                    <TextBlock VerticalAlignment="Center">Удалить блюдо</TextBlock>
+                                                    <Button Click="Button_Click_2" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Удалить текущее блюдо из базы данных">
+                                                        <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
+                                                    </Button>
+                                                </StackPanel>
+                                                <StackPanel   Grid.Row="3"  Orientation="Horizontal"  Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                                    <TextBlock VerticalAlignment="Center">Изменить блюдо</TextBlock>
+                                                    <Button Click="Button_Click" Margin="10 0 0 0" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Открыть форму для редактирования блюда">
+                                                        <materialDesign:PackIcon Kind="Edit" Height="20" Width="20" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </materialDesign:Flipper.BackContent>
+                            </materialDesign:Flipper>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+           
+        </ScrollViewer>
+
+        </Grid>
     </DockPanel>
 </UserControl>

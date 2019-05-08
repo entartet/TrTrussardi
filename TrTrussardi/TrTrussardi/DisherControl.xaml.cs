@@ -123,6 +123,17 @@ namespace TrTrussardi
         private void Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MakeFilter();
-        } 
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            db.Dispose();
+            db1.Dispose();
+        }
+
+        private void StackPanel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }

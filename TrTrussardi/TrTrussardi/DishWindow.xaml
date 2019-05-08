@@ -13,10 +13,10 @@
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="200*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="200*"/>
         </Grid.RowDefinitions>
         <Image Name="DishPhoto" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></Image>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">

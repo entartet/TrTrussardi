@@ -21,10 +21,7 @@
                             <TextBlock Text=" Меню ресторана"></TextBlock>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <TextBlock Text=" Ингредиенты"></TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <TextBlock Text=" Заказы"></TextBlock>
+                            <TextBlock Text=" Пользователи"></TextBlock>
                         </ListBoxItem>
                     </ListBox>
                 </DockPanel>

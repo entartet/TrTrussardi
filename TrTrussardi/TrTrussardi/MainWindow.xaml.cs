@@ -33,7 +33,7 @@ namespace TrTrussardi
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new IngridientsControl());
+                    GridPrincipal.Children.Add(new UsersControl());
                     break;
                 default:
                     break;

@@ -112,3 +112,7 @@ C:\Users\123\Documents\GitHub\Meow\TrTrussardi\TrTrussardi\obj\Debug\TrTrussardi
 C:\Users\123\Documents\GitHub\Meow\TrTrussardi\TrTrussardi\obj\Debug\TrTrussardi.csproj.CopyComplete
 C:\Users\123\Documents\GitHub\Meow\TrTrussardi\TrTrussardi\obj\Debug\TrTrussardi.exe
 C:\Users\123\Documents\GitHub\Meow\TrTrussardi\TrTrussardi\obj\Debug\TrTrussardi.pdb
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersControl.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersControl.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersWindow.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersWindow.baml

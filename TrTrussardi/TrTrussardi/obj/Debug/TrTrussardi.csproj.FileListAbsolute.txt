@@ -116,3 +116,9 @@ C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersControl.g
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersControl.baml
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersWindow.g.cs
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\UsersWindow.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\MainForUser.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\MainForUser.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\NotReadyOrdersPage.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\NotReadyOrdersPage.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\TrTrussardi.exe.CodeAnalysisLog.xml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\TrTrussardi.exe.lastcodeanalysissucceeded

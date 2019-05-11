@@ -13,8 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="4">
             <RadioButton Checked="RadioButton_Checked"  Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4" Content="Выполнить заказ" Name="MakeOrder"/>
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4"  Content="Готовые заказы" />
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4"  Content="Что то еще" />
+            <RadioButton Checked="RadioButton_Checked_1" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4"  Content="Готовые заказы" />
         </StackPanel>
         <Frame Grid.Row="1" Name="Frame1"/>
     </Grid>

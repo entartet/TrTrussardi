@@ -34,10 +34,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header = "Права администратора">
+                <DataGridTemplateColumn Header = "Должность">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding AdminPrivileges}"></CheckBox>
+                            <TextBlock FontFamily="Georgia"  Text="{Binding Positions.Name}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

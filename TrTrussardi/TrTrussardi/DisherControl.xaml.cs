@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using MaterialDesignThemes.Wpf;
 
 namespace TrTrussardi
 {
@@ -131,9 +132,41 @@ namespace TrTrussardi
             db1.Dispose();
         }
 
-        private void StackPanel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            Dishes dish = new Dishes();
+            DishWindow dishWindow = new DishWindow(dish);
+            //Добавление блюда
+            dishWindow.ShowDialog();
+            if (dishWindow.DialogResult != true)
+                return;
+            try
+            {
+                dish.Name = dishWindow.dishName.Text;
+                dish.Val = Convert.ToInt32(dishWindow.TextVal.Text);
+                dish.CategoryId = Convert.ToInt32(dishWindow.Categories.SelectedValue);
+                dish.Weight = dishWindow.textWeight.Text;
+                if (dishWindow.TextCount.Text != "")
+                    dish.Count = dishWindow.TextCount.Text;
+                dish.Protein = Convert.ToSingle(dishWindow.TextProtein.Text);
+                dish.Fat = Convert.ToSingle(dishWindow.TextFat.Text);
+                dish.Carbohydrate = Convert.ToSingle(dishWindow.TextCarb.Text);
+                dish.Calories = Convert.ToSingle(dishWindow.TextCalories.Text);
+                db1.Dishes.Add(dish);
+                db1.SaveChanges();
+                MessageBox.Show("Блюдо успешно добавлено");
+                MakeFilter();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при загрузке данных");
+            }
+        }
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            //Распечатка меню
+           
         }
     }
 }

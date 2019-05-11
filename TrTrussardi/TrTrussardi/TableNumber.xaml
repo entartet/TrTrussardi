@@ -1,0 +1,18 @@
+﻿<Window x:Class="TrTrussardi.TableNumber"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrTrussardi"
+        mc:Ignorable="d"
+        Height="200" Width="280" WindowStyle="None" FontSize="16" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <StackPanel>
+            <TextBlock Margin="0 10 0 0" HorizontalAlignment="Center">Введите номер стола</TextBlock>
+            <TextBlock HorizontalAlignment="Center"> если это необходимо</TextBlock>
+            <TextBox TextAlignment="Center" PreviewTextInput="NubmerBox_PreviewTextInput" Name="NubmerBox" MaxLength="3" Margin="90 10 90 10"></TextBox>
+            <Button Click="Button_Click" Width="140" FontSize="14" Padding="0" Background="LightGreen" Foreground="Black" BorderThickness="1" BorderBrush="Green">Выполнить заказ</Button>
+            <Button Click="Button_Click_1" Background="LightPink" Foreground="Black" BorderBrush="PaleVioletRed" Margin="0 8 0 0"  Width="140" FontSize="14" Padding="0">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>

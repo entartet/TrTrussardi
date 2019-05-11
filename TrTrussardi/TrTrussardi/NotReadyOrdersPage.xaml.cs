@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TrTrussardi
 {
@@ -75,6 +66,7 @@ namespace TrTrussardi
         }
         public void DoubleClickHandler(object sender, MouseEventArgs e)
         {
+            //удаляем блюдо из корзины
             Dishes sdishes = Corzina.SelectedItem as Dishes;
             int sum = 0;
             sum = Convert.ToInt32(AllCost.Text);
@@ -93,15 +85,19 @@ namespace TrTrussardi
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            if(Corzina.HasItems == true)
+            if (Corzina.HasItems == true)
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Подтвердите заказ", "", System.Windows.MessageBoxButton.OKCancel);
-                if (messageBoxResult == MessageBoxResult.OK)
+                TableNumber tn = new TableNumber();
+
+                if (tn.ShowDialog() == true)
                 {
                     //Здесь выполняем заказ
                     Orders orders = new Orders();
                     orders.Status = false;
+                    if(tn.NubmerBox.Text != "")
+                        orders.TableNumber = Convert.ToInt32(tn.NubmerBox.Text);
                     orders.Time = DateTime.Now;
+                    orders.AllCost = Convert.ToInt32(AllCost.Text);
                     dbOrder.Orders.Add(orders);
                     dbOrder.SaveChanges();
                     OrderedDishes orderedDishes = new OrderedDishes();
@@ -114,11 +110,13 @@ namespace TrTrussardi
                         dbOrderedDishes.SaveChanges();
                     }
                     MessageBox.Show("Заказ успешно выполнен");
+                    Corzina.Items.Clear();
+                    AllCost.Text = "0";
                 }
-                else
-                {
-                    MessageBox.Show("Корзина пуста");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста");
             }
         }
 

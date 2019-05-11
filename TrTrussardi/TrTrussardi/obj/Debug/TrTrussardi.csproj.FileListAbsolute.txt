@@ -120,5 +120,14 @@ C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\MainForUser.g.
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\MainForUser.baml
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\NotReadyOrdersPage.g.cs
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\NotReadyOrdersPage.baml
-C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\TrTrussardi.exe.CodeAnalysisLog.xml
-C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\TrTrussardi.exe.lastcodeanalysissucceeded
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\itextsharp.dll
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\itextsharp.xml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\ReadyOrdersPage.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\ReadyOrdersPage.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\TableNumber.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\TableNumber.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CookWindow.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CookWindow.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\AboutOrder.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\AboutOrder.baml

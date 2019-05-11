@@ -25,6 +25,7 @@ namespace TrTrussardi
         public Nullable<int> TableNumber { get; set; }
         public System.DateTime Time { get; set; }
         public bool Status { get; set; }
+        public Nullable<int> AllCost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CanceledOrders> CanceledOrders { get; set; }

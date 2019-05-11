@@ -25,5 +25,10 @@ namespace TrTrussardi
         {
                   Frame1.Content = new NotReadyOrdersPage();
         }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            Frame1.Content = new ReadyOrdersPage();
+        }
     }
 }

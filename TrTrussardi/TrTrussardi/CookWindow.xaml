@@ -1,0 +1,64 @@
+﻿<Window x:Class="TrTrussardi.CookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrTrussardi"
+        mc:Ignorable="d"
+        Closing="Window_Closing" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <DataGrid Margin="20" IsReadOnly="True" Name="NeedReadyOrdersGrid" AutoGenerateColumns="False" MaxHeight="700" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <EventSetter Event="MouseDoubleClick" Handler="DoubleClickHandler" />
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="DimGray"/>
+                        <Setter Property="Margin" Value="8 0 0 0"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header = "Номер заказа">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding OrderId}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Номер стола">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TableNumber}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header = "Время заказа">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Time, StringFormat='HH:mm'}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header = "Общая стоимость заказа">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding AllCost}"></TextBlock>
+                                    <TextBlock Margin="2 0 0 0" Text="р."></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Margin="10" Click="Button_Click_1" Width="180" Content="Обновить"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

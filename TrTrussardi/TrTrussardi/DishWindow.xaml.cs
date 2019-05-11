@@ -38,6 +38,7 @@ namespace TrTrussardi
         }
         public DishWindow()
         {
+            dish = new Dishes();
             InitializeComponent();
             db = new TrTrussardiEntities();
             db.Categories.Load();

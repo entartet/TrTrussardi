@@ -54,7 +54,7 @@ namespace TrTrussardi
                     editUser.Login = editUserWindow.textLogin.Text;
                     editUser.Password = editUserWindow.textPass.Text;
                     editUser.Name = editUserWindow.textName.Text;
-
+                    editUser.PositionId = (int)editUserWindow.ComboPosition.SelectedValue;
                     users.Entry(editUser).State = EntityState.Modified;
                     users.SaveChanges();
                     System.Windows.MessageBox.Show("Данные успешно изменены");
@@ -86,7 +86,7 @@ namespace TrTrussardi
                 user.Login = usersWindow.textLogin.Text;
                 user.Password = usersWindow.textPass.Text;
                 user.Name = usersWindow.textName.Text;
-                user.AdminPrivileges = (bool)usersWindow.checkAdmin.IsChecked;
+                user.PositionId = (int)usersWindow.ComboPosition.SelectedValue;
                 users.Users.Add(user);
                 users.SaveChanges();
                 System.Windows.MessageBox.Show("Новый пользователь добавлен");

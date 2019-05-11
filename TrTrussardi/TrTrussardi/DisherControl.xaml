@@ -20,7 +20,7 @@
             </ListBox.Resources>
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel/>
+                    <WrapPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
@@ -36,7 +36,7 @@
        
         <materialDesign:ColorZone DockPanel.Dock="Bottom" Mode="PrimaryMid" Padding="16">
             <DockPanel>
-                <StackPanel  Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                <StackPanel DockPanel.Dock="Left"  Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
                     <materialDesign:ColorZone   Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1"  Margin="16 0 0 0"  materialDesign:ShadowAssist.ShadowDepth="Depth1">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -55,11 +55,17 @@
                         <materialDesign:PackIcon  Kind="Send" />
                     </Button>
                 </StackPanel>
+                <materialDesign:PopupBox HorizontalAlignment="Right" DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel>
+                        <Button Click="Button_Click_3" Content="Добавить новое блюдо"/>
+                        <Button Click="Button_Click_4" Content="Распечатать меню" />
+                    </StackPanel>
+                </materialDesign:PopupBox>
             </DockPanel>
         </materialDesign:ColorZone>
         <Grid Name="mypanel">
             <ScrollViewer Height="{Binding ElementName=mypanel, Path=ActualHeight}">
-                <ListBox HorizontalAlignment="Center" Name="Dishes">
+                <ListBox VirtualizingStackPanel.VirtualizationMode="Recycling" VirtualizingStackPanel.CacheLength="100" VirtualizingStackPanel.CacheLengthUnit="Item"  ScrollViewer.IsDeferredScrollingEnabled="True" VirtualizingStackPanel.ScrollUnit="Pixel"  HorizontalAlignment="Center" Name="Dishes">
                     <ListBox.Resources>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Template">
@@ -83,7 +89,7 @@
                     </ListBox.Resources>
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel/>
+                            <WrapPanel Orientation="Horizontal"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>

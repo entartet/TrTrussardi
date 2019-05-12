@@ -58,7 +58,6 @@
                 <materialDesign:PopupBox HorizontalAlignment="Right" DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
                         <Button Click="Button_Click_3" Content="Добавить новое блюдо"/>
-                        <Button Click="Button_Click_4" Content="Распечатать меню" />
                     </StackPanel>
                 </materialDesign:PopupBox>
             </DockPanel>

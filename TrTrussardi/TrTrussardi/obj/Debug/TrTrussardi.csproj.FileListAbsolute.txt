@@ -131,3 +131,11 @@ C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CookWindow.g.c
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CookWindow.baml
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\AboutOrder.g.cs
 C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\AboutOrder.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\LoginWindow.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\LoginWindow.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CategoriesControl.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\CategoriesControl.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\OrdersControl.g.cs
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\obj\Debug\OrdersControl.baml
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\CalcBinding.dll
+C:\Users\1233\Desktop\Meow\Meow\TrTrussardi\TrTrussardi\bin\Debug\DynamicExpresso.Core.dll

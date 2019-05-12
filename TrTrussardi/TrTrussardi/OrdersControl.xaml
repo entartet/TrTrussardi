@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="TrTrussardi.OrdersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrTrussardi"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top" Height="10" Background="Transparent"/>
+        <Grid Background="WhiteSmoke" Height="50" DockPanel.Dock="Bottom">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent" HorizontalAlignment="Center">
+                <TextBlock FontSize="16" Text="Общая стоимость всех заказов: "/>
+                <TextBlock  FontSize="16" Text="{Binding AllCost}"></TextBlock>
+                <TextBlock  FontSize="16"  Margin="5 0 0 0">рублей</TextBlock>
+            </StackPanel>
+        </Grid>
+        <DataGrid CanUserSortColumns="True"  Name="OrdersGrid" AutoGenerateColumns="False" IsReadOnly="True" MaxHeight="700" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <ListBox ItemsSource="{Binding OrderedDishes}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MinWidth="200"/>
+                                        <ColumnDefinition MinWidth="200"/>
+                                        <ColumnDefinition MinWidth="200"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Dishes.Name}"></TextBlock>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <TextBlock Text=" Стоимость: "></TextBlock>
+                                        <TextBlock Text="{Binding Dishes.Val}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <TextBlock Text=" Категория: "></TextBlock>
+                                        <TextBlock Text="{Binding Dishes.Categories.Name}"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="OrderId" CanUserSort="True"   Header = "Номер заказа">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding OrderId}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="TableNumber" CanUserSort="True"   Header="Номер стола">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TableNumber}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="Time" CanUserSort="True"  Header = "Время заказа">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Time, StringFormat='yyyy-MM-dd HH:mm:ss'}" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="AllCost" CanUserSort="True"   Header = "Общая стоимость заказа">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding AllCost}"></TextBlock>
+                                <TextBlock Margin="2 0 0 0" Text="р."></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="Status" CanUserSort="True"   Header = "Выполнен">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="Не выполнен" Foreground="Red" Visibility="{c:Binding !Status, FalseToVisibility=Collapsed}" />
+                                <TextBlock Text="Выполнен" Foreground="Green" Visibility="{c:Binding Status, FalseToVisibility=Collapsed}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

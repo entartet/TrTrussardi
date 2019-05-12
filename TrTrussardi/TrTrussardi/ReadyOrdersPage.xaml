@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Unloaded="Page_Unloaded">
-
     <Grid>
         <DataGrid IsReadOnly="True" Name="ReadyOrdersGrid" AutoGenerateColumns="False" MaxHeight="700" VerticalAlignment="Top" HorizontalAlignment="Center">
             <DataGrid.Resources>

@@ -23,6 +23,12 @@
                         <ListBoxItem>
                             <TextBlock Text=" Пользователи"></TextBlock>
                         </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text=" Категории блюд"></TextBlock>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text=" Заказы"></TextBlock>
+                        </ListBoxItem>
                     </ListBox>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>

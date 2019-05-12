@@ -37,6 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CalcBinding, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalcBinding.2.5.1\lib\net45\CalcBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicExpresso.Core, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.3.1\lib\net461\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -98,6 +104,9 @@
     <Compile Include="Categories.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoriesControl.xaml.cs">
+      <DependentUpon>CategoriesControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Compositions.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -118,6 +127,9 @@
     </Compile>
     <Compile Include="IngridientsControl.xaml.cs">
       <DependentUpon>IngridientsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainForUser.xaml.cs">
       <DependentUpon>MainForUser.xaml</DependentUpon>
@@ -146,6 +158,9 @@
     <Compile Include="Orders.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrdersControl.xaml.cs">
+      <DependentUpon>OrdersControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Positions.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -171,6 +186,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CategoriesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="IngridientsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +227,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NotReadyOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrdersControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

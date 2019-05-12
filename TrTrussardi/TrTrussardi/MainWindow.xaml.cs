@@ -35,6 +35,14 @@ namespace TrTrussardi
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new UsersControl());
                     break;
+                case 2:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new CategoriesControl());
+                    break;
+                case 3:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new OrdersControl());
+                    break;
                 default:
                     break;
             }

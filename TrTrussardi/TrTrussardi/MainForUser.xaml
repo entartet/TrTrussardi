@@ -15,6 +15,6 @@
             <RadioButton Checked="RadioButton_Checked"  Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4" Content="Выполнить заказ" Name="MakeOrder"/>
             <RadioButton Checked="RadioButton_Checked_1" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4"  Content="Готовые заказы" />
         </StackPanel>
-        <Frame Grid.Row="1" Name="Frame1"/>
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1" Name="Frame1"/>
     </Grid>
 </Window>

@@ -9,11 +9,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel LastChildFill="True">
-        <Grid DockPanel.Dock="Top" Height="10" Background="Transparent"/>
+        <StackPanel HorizontalAlignment="Center" Margin="0 10 0 0" DockPanel.Dock="Top" Orientation="Horizontal">
+              <TextBlock Margin="5" VerticalAlignment="Center" FontSize="14">Отображать заказы: </TextBlock>
+              <ComboBox SelectionChanged="ComboBox1_SelectionChanged" Margin="5"  BorderThickness="0" VerticalAlignment="Center" StaysOpenOnEdit ="True"  IsEditable="true"  AllowDrop="True" FontSize="14" Name="comboBox1" FontFamily="Arial">
+                <ComboBox.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="ComboBox.Background" Value="Transparent" />
+                    </Style>
+                </ComboBox.Resources>
+                    <ComboBoxItem>
+                    <TextBlock>все</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                    <TextBlock>выполненные</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                    <TextBlock>невыполненные</TextBlock>
+                    </ComboBoxItem>
+            </ComboBox>
+              <TextBlock  Margin="5" VerticalAlignment="Center" FontSize="14">От:</TextBlock>
+              <DatePicker SelectedDateChanged="Ot_SelectedDateChanged"   Margin="5"  SelectedDateFormat="Short"  Name="Ot"></DatePicker>
+              <TextBlock  Margin="5"  VerticalAlignment="Center" FontSize="14">До:</TextBlock>
+            <DatePicker SelectedDateChanged="Ot_SelectedDateChanged"    Margin="5"   SelectedDateFormat="Short"  Name="Do" IsTodayHighlighted="True" ></DatePicker>
+        </StackPanel>
+
         <Grid Background="WhiteSmoke" Height="50" DockPanel.Dock="Bottom">
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent" HorizontalAlignment="Center">
-                <TextBlock FontSize="16" Text="Общая стоимость всех заказов: "/>
-                <TextBlock  FontSize="16" Text="{Binding AllCost}"></TextBlock>
+                <TextBlock FontSize="16" Text="Общая стоимость заказов: "/>
+                <TextBlock  FontSize="16" Name="AllCostText"></TextBlock>
                 <TextBlock  FontSize="16"  Margin="5 0 0 0">рублей</TextBlock>
             </StackPanel>
         </Grid>
@@ -59,10 +82,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="Time" CanUserSort="True"  Header = "Время заказа">
+                <DataGridTemplateColumn CanUserReorder="True"  SortMemberPath="Time" CanUserSort="True"  Header = "Дата и время заказа">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Time, StringFormat='yyyy-MM-dd HH:mm:ss'}" ></TextBlock>
+                            <TextBlock Text="{Binding Time, StringFormat='yyyy-MM-dd HH:mm'}" ></TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
